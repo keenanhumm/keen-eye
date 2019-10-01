@@ -6,13 +6,14 @@ export const makeFetch = ({
   params = null,
   body = null,
   onSuccess = null,
-  onError = error => console.error(error)
+  onError = error => console.error(error),
+  useKey = false
 }) => {
   if(!url) {
     return;
   }
 
-  const allParams = { api_key: API_KEY, ...params }
+  const allParams = useKey ? { api_key: API_KEY, ...params } : params;
   const queryString = Object.keys(allParams).map(key => '?' + key + '=' + allParams[key]).join('&');
 
   fetch(url+queryString, {
@@ -29,4 +30,18 @@ export const makeFetch = ({
         return response;
       }
     }).catch(error => onError(error));
+}
+
+export const handleInputChange = (event, clientThis, stateProperty) => {
+  event.preventDefault();
+  clientThis.setState({
+    [stateProperty]: event.target.value
+  });
+}
+
+export const navigateTo = (path = null) => {
+  if(!path){
+    return;
+  }
+  window.location.replace(`${window.origin}${path}`);
 }
