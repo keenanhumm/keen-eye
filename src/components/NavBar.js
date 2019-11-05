@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { navigateTo } from '../utils'
 
 export default props => {
   return (
-    <div>
-      <h5>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          KeenEye
-        </Link>
-      </h5>
-      <button color="inherit" onClick={() => navigateTo("/search")}>
-        Search
-      </button>
-    </div>
+    <React.Fragment>
+      <div></div>
+      <div className="nav_center">
+        <h2 className="nav--title" onClick={() => navigateTo("/")}>
+          <span className="link">KeenEye</span>
+        </h2>
+      </div>
+      <div className="nav_right">
+        <h3 className="nav--option" onClick={() => navigateTo("/search")}>
+          <span className="link font-color--gray">Search</span>
+        </h3>
+      </div>
+    </React.Fragment>
   );
 };

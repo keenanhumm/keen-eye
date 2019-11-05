@@ -68,14 +68,16 @@ class Search extends React.Component {
 
     return (
       <div className="page">
-        <h5>Search NASA:</h5>
+        <h3>Search NASA</h3>
         <form onSubmit={handleSubmit}>
           <input
+            placeholder="Enter text here"
+            className="input-lg"
             type="text"
             value={searchQuery}
             onChange={e => handleInputChange(e, this, "searchQuery")}
           />
-          <button type="submit" onClick={handleSubmit}>
+          <button date-hover="Search!" type="submit" onClick={handleSubmit}>
             Go
           </button>
         </form>

@@ -10,12 +10,10 @@ export default class App extends React.Component {
     return (
       <Router>
         <AppContext.Provider value={this.props.history}>
-          <div className="app">
-            <div className="nav">
-              <NavBar />
-            </div>
-            <div className="main">{routes}</div>
+          <div className="nav">
+            <NavBar />
           </div>
+          <div className="main">{routes}</div>
         </AppContext.Provider>
       </Router>
     );

@@ -39,11 +39,11 @@ class Landing extends React.Component {
     }
     return (
       <div className="page">
-        <h5>Pic of the Day</h5>
+        <h1>Pic of the Day</h1>
         {mediaType === "video" ? (
           <YTPlayer embedUrl={apodUrl} />
         ) : (
-          <img src={apodUrl} alt="apod" />
+          <img className="large-image" src={apodUrl} alt="apod" />
         )}
         <p>{apodExplanation}</p>
       </div>
